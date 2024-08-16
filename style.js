@@ -1,0 +1,1 @@
+// ... JavaScript logic for product display, cart, checkout, etc.

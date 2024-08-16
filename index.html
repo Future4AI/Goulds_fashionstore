@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gould's Fashion Crib</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>Gould's Fashion Crib</h1>
+    <div class="products">
+        {% for product in products %}
+            <div class="product">
+                <h2>{{ product.name }}</h2>
+                <p>Size: {{ product.size }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <button>Add to Cart</button>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
