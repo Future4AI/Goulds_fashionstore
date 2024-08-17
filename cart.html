@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product_id, sizes in cart.items() %}
+            {% for size, quantity in sizes.items() %}
+            <tr>
+                <td>{{ products[product_id - 1].name }}</td>
+                <td>{{ size }}</td>
+                <td>{{ quantity }}</td>
+                <td>${{ products[product_id - 1].price * quantity }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total</td>
+                <td>${{ total_price }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <a href="/checkout">Checkout</a>
+</body>
+</html>

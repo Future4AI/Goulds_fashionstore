@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <h2>Order Summary</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product_id, sizes in cart.items() %}
+            {% for size, quantity in sizes.items() %}
+            <tr>
+                <td>{{ products[product_id - 1].name }}</td>
+                <td>{{ size }}</td>
+                <td>{{ quantity }}</td>
+                <td>${{ products[product_id - 1].price * quantity }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total</td>
+                <td>${{ total_price }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <p>Please provide shipping information and payment details.</p>
+    <button type="submit">Place Order</button>
+</body>
+</html>
